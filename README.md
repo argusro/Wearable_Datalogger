@@ -29,12 +29,27 @@
 
 <ol>
     <li><strong>Hardware:</strong> You can use development modules for each sensor and the microcontroller, or assemble the PCB yourself.</li>
-    <li><strong>Software Installation:</strong> This code is for Arduino IDE and requires the following extra libraries to be installed:</li>
+    <li><strong>Software:</strong> 
+    <ul><strong>Compilation:</strong>  This code is for Arduino IDE and requires the following extra libraries to be installed:</li>
     <ul>
         <li><strong>TinyGPS++</strong> | Arduino NMEA parsing library | https://github.com/mikalhart/TinyGPSPlus</li>
         <li><strong>Adafruit BME280</strong> | Adafruit BME280 Humidity, Barometric Pressure + Temp sensor | https://github.com/adafruit/Adafruit_BME280_Library</li>
         <li><strong>MPU 9250</strong> | Arduino library for MPU9250 Nine-Axis (Gyro + Accelerometer + Compass) MEMS MotionTracking™ Device | https://github.com/hideakitai/MPU9250</li>
-    </ul>
+    </ul></ul>
+    <ul>
+    <strong>Deploying:</strong> 
+    <ul><li>To burn the code in the circuit is straightforward if you are using a commercial ESP32 module.</li>
+    <li> For the suggested circuit, an external USB-to-TTL module is required, with a 3.3V operational level, and the battery connected.
+    <ol>
+        <li>Connect the USB-to-TTL in the unpopulated header in the board, using with the following pinout:
+        <br>
+        <img src="hardware/TTL_pinout.png" width="300">
+        <br> TX and RX are from the USB-to-TTL, no inversion required.</li>
+        <li> To start the ESP32 in upload mode connect the Flash pin to GND and press SW1 to restart the micro-controller.</li>
+        <li> Start burning on Arduino IDE.</li>
+        <li> Restart the ESP manually pressing SW1 when the upload is complete.</li>
+    </ol>
+    </ul></li></ul>
 </ol>
 
 <h2>Usage</h2>
@@ -49,8 +64,8 @@
 
 <h2>Observations</h2>
 
-<p>In case of indoor testing, an external GPS antenna can be used.</p>
-<p>Battery should be a single cell Li-ion, for example 303035, 3.7V 300mAh.</p>
+<p>In case of indoor testing, an external GPS antenna can be used.
+<br>Battery should be a single cell Li-ion, for example 303035, 3.7V 300mAh.</p>
 
 <h2>Future Work</h2>
 <ul>
